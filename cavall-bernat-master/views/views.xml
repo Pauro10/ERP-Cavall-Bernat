@@ -1,0 +1,250 @@
+<odoo>
+  <data>
+
+    <!-- DEFINICIÓ DE VISTES I VISTES PERSONALITZADES -->
+    <record model="ir.ui.view" id="cavall_bernat.comanda_list_view">
+      <field name="name">cavall_bernat.comanda.view.tree</field>
+      <field name="model">cavall_bernat.comanda</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id_comanda"/>
+          <field name="preu"/>
+          <field name="data"/>
+          <field name="estat_comanda"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cavall_bernat.comanda_list_form">
+      <field name="name">cavall_bernat.comanda.view.form</field>
+      <field name="model">cavall_bernat.comanda</field>
+      <field name="arch" type="xml">
+        <form string="Formulari de comandes">
+          <sheet>
+            <div class="oe_title">
+              <label class="oe_edit_only" for="id_comanda" string="ID Comanda"/>
+              <h1>
+                <field name="id_comanda" placeholder="ID Comanda"/>
+              </h1>
+            </div>
+            <group>
+              <separator string="Informació Comanda"/>
+              <field name="preu"/>
+              <field name="data"/>
+              <field name="estat_comanda"/>
+            </group>
+
+            <group>
+              <field name="ingredient_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- DEFINICIÓ DE CALENDARI DE COMANDES-->
+    <record model="ir.ui.view" id="cavall_bernat.comanda_calendar_view">
+      <field name="name">cavall_bernat.comanda.view.calendar</field>
+      <field name="model">cavall_bernat.comanda</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendari de comandes" date_start="data" color="estat_comanda" mode="month">
+          <field name="id_comanda"/>
+          <field name="preu"/>
+          <field name="estat_comanda"/>
+        </calendar>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cavall_bernat.comanda_search_view">
+      <field name="name">cavall_bernat.comanda.search.tree</field>
+      <field name="model">cavall_bernat.comanda</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="id_comanda"/>
+          <field name="preu"/>
+          <field name="data"/>
+          <field name="estat_comanda"/>
+          <group>
+            <filter name="group_by_estat_comanda" string="Estat Comanda" context="{'group_by':'estat_comanda'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="cavall_bernat.ingredient_list_view">
+      <field name="name">cavall_bernat.ingredient.view.tree</field>
+      <field name="model">cavall_bernat.ingredient</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id_ingredient"/>
+          <field name="nom"/>
+          <field name="familia"/>
+          <field name="mesura"/>
+          <field name="preuing"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cavall_bernat.ingredient_list_form">
+      <field name="name">cavall_bernat.ingredient.view.form</field>
+      <field name="model">cavall_bernat.ingredient</field>
+      <field name="arch" type="xml">
+        <form string="Formulari de Ingredients">
+          <sheet>
+            <div class="oe_title">
+              <label class="oe_edit_only" for="nom" string="Nom Ingredient"/>
+              <h1>
+                <field name="nom" placeholder="Nom Ingredient"/>
+              </h1>
+            </div>
+            <group>
+              <separator string="Informació Ingredient"/>
+              <field name="id_ingredient"/>
+              <field name="familia"/>
+              <field name="mesura"/>
+              <field name="preuing"/>
+              <field name="proveidor_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cavall_bernat.ingredient_search_view">
+      <field name="name">cavall_bernat.ingredient.search.tree</field>
+      <field name="model">cavall_bernat.ingredient</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="id_ingredient"/>
+              <field name="familia"/>
+              <field name="mesura"/>
+              <field name="preuing"/>
+              <field name="proveidor_id"/>
+          <group>
+            <filter name="group_by_familia" string="Familia" context="{'group_by':'familia'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="cavall_bernat.proveidor_list_view">
+      <field name="name">cavall_bernat.proveidor.view.tree</field>
+      <field name="model">cavall_bernat.proveidor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id_proveidor"/>
+          <field name="nom_proveidor"/>
+          <field name="telefon"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cavall_bernat.proveidor_list_form">
+      <field name="name">cavall_bernat.proveidor.view.form</field>
+      <field name="model">cavall_bernat.proveidor</field>
+      <field name="arch" type="xml">
+        <form string="Formulari de proveidors">
+          <sheet>
+            <div class="oe_title">
+              <label class="oe_edit_only" for="nom_proveidor" string="Nom Proveïdor"/>
+              <h1>
+                <field name="nom_proveidor" placeholder="Nom Proveïdor"/>
+              </h1>
+            </div>
+            <group>
+              <separator string="Informació Proveïdor"/>
+              <field name="id_proveidor"/>
+              <field name="telefon"/>
+            </group>
+
+            <group>
+              <field name="ingredient_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="cavall_bernat.professor_list_view">
+      <field name="name">cavall_bernat.professor.view.tree</field>
+      <field name="model">cavall_bernat.professor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nif"/>
+          <field name="nom_professor"/>
+          <field name="email"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="cavall_bernat.professor_list_form">
+      <field name="name">cavall_bernat.professor.view.form</field>
+      <field name="model">cavall_bernat.professor</field>
+      <field name="arch" type="xml">
+        <form string="Formulari de professors">
+          <sheet>
+            <div class="oe_title">
+              <label class="oe_edit_only" for="nom_professor" string="Nom Professor"/>
+              <h1>
+                <field name="nom_professor" placeholder="Nom Professor"/>
+              </h1>
+            </div>
+            <group>
+              <separator string="Informació Professor"/>
+              <field name="nif"/>
+              <field name="email"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+
+
+    <!-- DEFINICIÓ DE ACTIONS -->
+    <record model="ir.actions.act_window" id="cavall_bernat.action_window_comandes">
+      <field name="name">Comandes</field>
+      <field name="res_model">cavall_bernat.comanda</field>
+      <field name="view_mode">tree,form,calendar</field>
+      <field name="context">{'search_default_group_by_estat_comanda':False}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="cavall_bernat.action_window_ingredients">
+      <field name="name">Ingredients</field>
+      <field name="res_model">cavall_bernat.ingredient</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{'search_default_group_by_familia':False}</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="cavall_bernat.action_window_proveidors">
+      <field name="name">Proveidors</field>
+      <field name="res_model">cavall_bernat.proveidor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="cavall_bernat.action_window_professors">
+      <field name="name">Professors</field>
+      <field name="res_model">cavall_bernat.professor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--Icon del modul-->
+    <menuitem name="Cavall_Bernat" id="cavall_bernat.menu_root" web_icon="cavall_bernat,static/description/icon.png"/>
+    
+    <!-- DEFINICIÓ DE MENUS -->
+    <menuitem name="Cavall Bernat" id="cavall_bernat.menu_principal"/>
+      
+    <menuitem name="Comandes" id="cavall_bernat.comandes_menu" parent="cavall_bernat.menu_principal" action="cavall_bernat.action_window_comandes"/>
+    <menuitem name="Ingredients" id="cavall_bernat.ingredients_menu" parent="cavall_bernat.menu_principal" action="cavall_bernat.action_window_ingredients"/>
+    <menuitem name="Proveïdors" id="cavall_bernat.proveidors_menu" parent="cavall_bernat.menu_principal" action="cavall_bernat.action_window_proveidors"/>
+    <menuitem name="Professors" id="cavall_bernat.professors_menu" parent="cavall_bernat.menu_principal" action="cavall_bernat.action_window_professors"/>
+    
+  </data>
+</odoo>

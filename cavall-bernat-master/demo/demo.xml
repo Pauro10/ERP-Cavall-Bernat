@@ -1,0 +1,112 @@
+<odoo>
+    <data>
+        <!--COMANDES-->
+        <record id="comanda1" model="cavall_bernat.comanda">
+            <field name="id_comanda">1</field>
+            <field name="preu">18.00</field>
+            <field name="data" eval="datetime.now()"/>
+            <field name="estat_comanda">c</field>
+        </record>
+
+        <record id="comanda2" model="cavall_bernat.comanda">
+            <field name="id_comanda">2</field>
+            <field name="preu">25.00</field>
+            <field name="data" eval="datetime.now()"/>
+            <field name="estat_comanda">r</field>
+        </record>
+
+
+
+        <!--PROVEIDORS-->
+        <record id="proveidor1" model="cavall_bernat.proveidor">
+            <field name="id_proveidor">1</field>
+            <field name="nom_proveidor">Carniceria Paco</field>
+            <field name="telefon">123456789</field>
+        </record>
+
+        <record id="proveidor2" model="cavall_bernat.proveidor">
+            <field name="id_proveidor">2</field>
+            <field name="nom_proveidor">Fruites i Verdures Terrassa</field>
+            <field name="telefon">987654321</field>
+        </record>
+
+        <record id="proveidor3" model="cavall_bernat.proveidor">
+            <field name="id_proveidor">3</field>
+            <field name="nom_proveidor">Peixateria Serrano</field>
+            <field name="telefon">664320292</field>
+        </record>
+
+        <record id="proveidor4" model="cavall_bernat.proveidor">
+            <field name="id_proveidor">4</field>
+            <field name="nom_proveidor">Cellers Rodríguez</field>
+            <field name="telefon">983674581</field>
+        </record>
+
+
+
+        <!--INGREDIENTS-->
+        <record id="ingredient1" model="cavall_bernat.ingredient">
+            <field name="id_ingredient">1</field>
+            <field name="nom">Pomes</field>
+            <field name="familia">Fruita</field>
+            <field name="mesura">kg</field>
+            <field name="preuing">4.00</field>
+            <field name="comanda_id" ref="comanda1"></field>
+            <field name="proveidor_id" ref="proveidor2"></field>
+        </record>
+
+        <record id="ingredient2" model="cavall_bernat.ingredient">
+            <field name="id_ingredient">2</field>
+            <field name="nom">Patates</field>
+            <field name="familia">Verdures</field>
+            <field name="mesura">kg</field>
+            <field name="preuing">3.00</field>
+            <field name="comanda_id" ref="comanda1"></field>
+            <field name="proveidor_id" ref="proveidor2"></field>
+        </record>
+
+        <record id="ingredient3" model="cavall_bernat.ingredient">
+            <field name="id_ingredient">3</field>
+            <field name="nom">Costelles</field>
+            <field name="familia">Carn</field>
+            <field name="mesura">kg</field>
+            <field name="preuing">10.00</field>
+            <field name="comanda_id" ref="comanda2"></field>
+            <field name="proveidor_id" ref="proveidor1"></field>
+        </record>
+
+        <record id="ingredient4" model="cavall_bernat.ingredient">
+            <field name="id_ingredient">4</field>
+            <field name="nom">Salmó</field>
+            <field name="familia">Peix</field>
+            <field name="mesura">kg</field>
+            <field name="preuing">15.00</field>
+            <field name="comanda_id" ref="comanda2"></field>
+            <field name="proveidor_id" ref="proveidor3"></field>
+        </record>
+
+        <record id="ingredient5" model="cavall_bernat.ingredient">
+            <field name="id_ingredient">5</field>
+            <field name="nom">Vi negre</field>
+            <field name="familia">Begudes</field>
+            <field name="mesura">l</field>
+            <field name="preuing">11.00</field>
+            <field name="comanda_id" ref="comanda1"></field>
+            <field name="proveidor_id" ref="proveidor4"></field>
+        </record>
+
+
+        <!--PROFESSORS-->
+        <record id="professor1" model="cavall_bernat.professor">
+            <field name="nif">49555556D</field>
+            <field name="nom_professor">Pau Rodríguez Díez</field>
+            <field name="email">rodriguez.diez.pau@alumnat.copernic.cat</field>
+        </record>
+
+        <record id="professor2" model="cavall_bernat.professor">
+            <field name="nif">12345678G</field>
+            <field name="nom_professor">Genis Serrano Mansilla</field>
+            <field name="email">serrano.mansilla.genis@alumnat.copernic.cat</field>
+        </record>
+    </data>
+</odoo>

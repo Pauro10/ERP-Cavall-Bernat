@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <!--Definim una categoria de seguretat per el modul-->
+    <record model="ir.module.category" id="cavall_bernat.module_category_cavall_bernat">
+        <field name="name">Cavall_Benat</field>
+        <field name="description">Ajuda a gestionar el teu restaurant</field>
+        <field name="sequence">100</field>
+    </record>
+
+    <!--Definim el grup professors de la categoria Cavall Bernat-->
+    <record model="res.groups" id="group_cavall_bernat_professor">
+        <field name="name">Professor</field>
+        <field name="category_id" ref="cavall_bernat.module_category_cavall_bernat"/>
+        <field name="comment">Professor que poden crear comandes</field>
+    </record>
+
+    <!--Definim el grup administradors de la categoria Cavall Bernat-->
+    <record model="res.groups" id="group_cavall_bernat_administrador">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="cavall_bernat.module_category_cavall_bernat"/>
+        <field name="comment">Administrador que gestiona el control del modul</field>
+        <!--Els membres del grup administrador tambe son membres del grup professors-->
+        <field name="implied_ids" eval="[(4, ref('group_cavall_bernat_professor'))]"/>
+        <!--Afegim als usuaris administradors de Odoo-->
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</data>
+</odoo>
